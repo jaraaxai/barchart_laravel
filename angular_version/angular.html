@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <link rel="stylesheet" type="text/css" media="screen" href="/js/tablesorter/themes/blue/style.css" />
+  <script type="text/javascript" src="/js/tablesorter/jquery-latest.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  
+</head>
+
+<body>
+ 
+<div class="container" ng-app="myApp" ng-controller="customersCtrl">
+
+
+  <form ng-submit="searchFunc()">
+    <input class="addsymbol" type="text" placeholder="Enter a symbol" ng-model="keyword" name="keyword">
+    <input class="add-btn" type="submit" value="Add symbol">
+    <span class="error_list" ng-show="errorKeyword">Insert symbol name!</span>
+  </form>
+
+  <div class="form-style-10" ng-show="showForm">
+      <span class="error_list" ng-show="searchMsg">{{ searchMsg }}</span>
+    <form ng-submit="processForm()" name="myForm">
+      <input name="id" value="" id="symbolid" type="hidden" ng-model="formData.id">
+
+      <label for="symbol">Symbol</label>
+      <input name="symbol" value="" id="symbol" type="text" ng-model="formData.symbol">
+      <span class="error_list" ng-show="errorSymbol">{{ errorSymbol }}</span>
+        
+      <label for="name">Symbol Name</label>
+      <input name="name" value="" id="name" type="text" ng-model="formData.name">
+      <span class="error_list" ng-show="errorName">{{ errorName }}</span>
+
+      <label for="last_price">Last Price</label>
+      <input name="last_price" value="" id="last_price" type="text" ng-model="formData.last_price">
+      <span class="error_list" ng-show="errorPrice">{{ errorPrice }}</span>
+
+      <label for="prichange">Change</label>
+      <input name="prichange" value="" id="prichange" type="text" ng-model="formData.prichange">
+      <span class="error_list" ng-show="errorChange">{{ errorChange }}</span>
+
+      <label for="pctchange">% Change</label>
+      <input name="pctchange" value="" id="pctchange" type="text" ng-model="formData.pctchange">
+      <span class="error_list" ng-show="errorPctChange">{{ errorPctChange }}</span>
+
+      <label for="volume">Volume</label>
+      <input name="volume" value="" id="volume" type="text" ng-model="formData.volume">
+      <span class="error_list" ng-show="errorVolume">{{ errorVolume }}</span>
+      <br/>
+      <input name="submit" value="Save" type="submit">
+      <a ng-click="cancelForm()" href="#">cancel</a>
+  </form>
+  </div>
+
+<table class="tablesorter">
+<thead>
+    <tr>
+      <th class="header" ng-click="sortBy('symbol')" ng-class="sortClass('symbol')">Symbol</th>
+      <th class="header" ng-click="sortBy('name')" ng-class="sortClass('name')">Symbol Name</th>
+      <th class="header" ng-click="sortBy('last_price')" ng-class="sortClass('last_price')">Last Price</th>
+      <th class="header" ng-click="sortBy('prichange')" ng-class="sortClass('prichange')">Change</th>
+      <th class="header" ng-click="sortBy('pctchange')" ng-class="sortClass('pctchange')">%Change</th>
+      <th class="header" ng-click="sortBy('volume')" ng-class="sortClass('volume')">Volume</th>
+      <th class="header" ng-click="sortBy('tradetime')" ng-class="sortClass('tradetime')">Time</th>
+      <th>#</th>
+    </tr>
+</thead>
+<tbody>
+  <tr ng-repeat="x in names | orderBy:sortType:sortReverse">
+    <td>{{ x.symbol }}</td>
+    <td>{{ x.name }}</td>
+    <td>{{ x.last_price }}</td>
+    <td>{{ x.prichange }}</td>
+    <td>{{ x.pctchange }}</td>
+    <td>{{ x.volume }}</td>
+    <td>{{ x.tradetime }}</td>
+    <td><a ng-click="delete(x)">x</a></td>
+  </tr>
+  <tr ng-show="!(names).length">
+      <td colspan="8">
+        <div id="messages">
+          <div class="error">There are no symbols in your watchslist, please add one</div>
+        </div>
+      </td>
+    </tr>
+</tbody>
+</table>
+
+</div>
+ 
+<script src="/js/my-angular.js"></script>
+ 
+</body>
+</html>

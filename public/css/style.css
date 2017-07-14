@@ -1,0 +1,117 @@
+/* tables */
+.container{
+	width: 940px; 
+	margin: 0 auto; 
+	text-align: left;
+}
+
+.addsymbol {
+	border-radius: 14px;
+	border: 1px solid #B0B0B0;
+	height: 19px;
+	padding: 5px;
+}
+
+.add-btn {
+	color:#777;
+    display:inline-block;
+    padding:8px;
+    line-height:1;
+    border-radius:14px;
+    font-size:13px;
+
+    color:#fff;
+    font-weight:500;
+
+    border:1px solid #1768b3;
+    background:#1768b3;
+
+    white-space:nowrap;
+
+    letter-spacing:-0.5px;
+    box-shadow:3px 3px 0 rgba(0,0,0,0.1);
+
+    transition:0.3s ease;
+}
+table.tablesorter tbody tr td.gol{
+	text-align: center;
+}
+table.tablesorter tbody tr td.bar{
+	text-align: right;
+}
+table.tablesorter {
+	font-family:arial;
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+table.tablesorter thead tr .header {
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
+}
+
+#messages .info, #messages .success, #messages .warning, #messages .error, #messages .validation {
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    border: 1px solid;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 50px;
+    padding-right: 10px;
+    padding-top: 15px;
+}
+#messages .info {
+    background-color: #BDE5F8;
+    background-image: url("info.png");
+    color: #00529B;
+}
+#messages .success {
+    background-color: #DFF2BF;
+    background-image: url("success.png");
+    color: #4F8A10;
+}
+#messages .warning {
+    background-color: #FEEFB3;
+    background-image: url("warning.png");
+    color: #9F6000;
+}
+#messages .error {
+    background-color: #FFBABA;
+    background-image: url("error.png");
+    color: #D8000C;
+}
+
+.error_list{
+    color: red;
+}
